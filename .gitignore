@@ -69,3 +69,5 @@ fabric.properties
 
 # contains osu!API key!
 test/
+project/
+target/
