@@ -10,7 +10,7 @@ class ScalaOsu(val key: String) {
     val gson: Gson = new Gson
 
     try {
-      Some[User](gson.fromJson(getJson("https://osu.ppy.sh/api/get_user?k=" + key + "&u=" + username + "&type=string&m=" + mode), classOf[Array[User]])(0))
+      Some[User](gson.fromJson(getJson(s"https://osu.ppy.sh/api/get_user?k=$key&u=$username&type=string&m=$mode"), classOf[Array[User]])(0))
     } catch {
       case _: Exception => None
     }
@@ -20,7 +20,7 @@ class ScalaOsu(val key: String) {
     val gson: Gson = new Gson
 
     try {
-      Some[Beatmap](gson.fromJson(getJson("https://osu.ppy.sh/api/get_beatmaps?k=" + key + "&b=" + id + "&m=" + mode), classOf[Array[Beatmap]])(0))
+      Some[Beatmap](gson.fromJson(getJson(s"https://osu.ppy.sh/api/get_beatmaps?k=$key&b=$id&m=$mode"), classOf[Array[Beatmap]])(0))
     } catch {
       case _: Exception => None
     }
@@ -30,7 +30,7 @@ class ScalaOsu(val key: String) {
     val gson: Gson = new Gson
 
     try {
-      Some[Score](gson.fromJson(getJson("https://osu.ppy.sh/api/get_scores?k=" + key + "&u=" + userID + "&type=id&b=" + beatmapID + "&m=" + mode), classOf[Array[Score]])(0))
+      Some[Score](gson.fromJson(getJson(s"https://osu.ppy.sh/api/get_scores?k=$key&u=$userID&type=id&b=$beatmapID&m=$mode"), classOf[Array[Score]])(0))
     } catch {
       case _: Exception => None
     }
@@ -40,7 +40,7 @@ class ScalaOsu(val key: String) {
     val gson: Gson = new Gson
 
     try {
-      Some[Score](gson.fromJson(getJson("https://osu.ppy.sh/api/get_user_best?k=" + key + "&u=" + userID + "&type=string&m=" + mode), classOf[Array[Score]])(0))
+      Some[Score](gson.fromJson(getJson(s"https://osu.ppy.sh/api/get_user_best?k=$key&u=$userID&type=string&m=$mode"), classOf[Array[Score]])(0))
     } catch {
       case _: Exception => None
     }
@@ -57,7 +57,7 @@ class ScalaOsu(val key: String) {
     val gson: Gson = new Gson
 
     try {
-      Some[Replay](gson.fromJson(getJson("https://osu.ppy.sh/api/get_replay?k=" + key + "&u=" + userID + "&b=" + beatmapID + "&m=" + mode), classOf[Replay]))
+      Some[Replay](gson.fromJson(getJson(s"https://osu.ppy.sh/api/get_replay?k=$key&u=$userID&b=$beatmapID&m=$mode"), classOf[Replay]))
     } catch {
       case _: Exception => None
     }
